@@ -4,8 +4,8 @@ song1 = "";
 song2 = "";
 
 function preload(){
-    song1 = loadSound("heatwaves.mp3");
-    song2 = loadSound("peaches.mp3"); 
+    song1 = loadSound('heatwaves.mp3');
+    song2 = loadSound('peaches.mp3'); 
 }
 function setup(){
     canvas = createCanvas(450, 300);
