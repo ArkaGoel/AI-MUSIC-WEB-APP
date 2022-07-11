@@ -1,5 +1,7 @@
 leftWristY = 0;
 rightWristY = 0;
+leftWristX = 0;
+rightWristX = 0;
 song1 = "";
 song2 = "";
 
@@ -22,7 +24,9 @@ function gotPoses(results){
     if(results.length > 0){
         leftWristY = results[0].pose.leftWrist.y;
         rightWristY = results[0].pose.rightWrist.y;
-        console.log("leftWristY= " + leftWristY + " rightWristY= " + rightWristY);
-
+        leftWristX = results[0].pose.leftWrist.x;
+        rightWristX = results[0].pose.rightWrist.x;
+        console.log("leftWristX= " + leftWristX + " leftWristY= " + leftWristY);
+        console.log("rightWristX= " + rightWristX + "rightWristY= " + rightWristY);
     }
 }
