@@ -4,6 +4,8 @@ leftWristX = 0;
 rightWristX = 0;
 song1 = "";
 song2 = "";
+scoreleftWrist = 0;
+scorerightWrist = 0;
 
 function preload(){
     song1 = loadSound('heatwaves.mp3');
@@ -22,11 +24,34 @@ function modelLoaded(){
 }
 function gotPoses(results){
     if(results.length > 0){
+        console.log(results);
         leftWristY = results[0].pose.leftWrist.y;
         rightWristY = results[0].pose.rightWrist.y;
         leftWristX = results[0].pose.leftWrist.x;
         rightWristX = results[0].pose.rightWrist.x;
+        scoreleftWrist = results[0].pose.keypoints[9].score;
+        scorerightWrist = results[0].pose.keypoints[10].score;
         console.log("leftWristX= " + leftWristX + " leftWristY= " + leftWristY);
         console.log("rightWristX= " + rightWristX + "rightWristY= " + rightWristY);
+    }
+}
+function draw(){
+    fill('#ff0000');
+    stroke('#000000');
+    if(song2.isPlaying() == true){
+    if(scoreleftWrist > 0.2){
+        song1.play();
+        song1.setVolume(1);
+        song1.rate(1);
+        document.getElementById("song_name").innerHTML = "Heat Waves By Glass Animals";
+    }
+}
+    if(scorerightWrist > 0.2){
+        if(song1.isPlaying() == true){
+            song2.play();
+            song2.setVolume(1);
+            song2.rate(1);
+            document.getElementById("song_name").innerHTML = "Peaches by Justin Bieber (feat. Daniel Ceaser & Giveon)"
+        }
     }
 }
