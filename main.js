@@ -40,6 +40,7 @@ function draw(){
     stroke('#000000');
     if(song2.isPlaying() == true){
     if(scoreleftWrist > 0.2){
+        song2.stop();
         song1.play();
         song1.setVolume(1);
         song1.rate(1);
@@ -48,6 +49,7 @@ function draw(){
 }
     if(scorerightWrist > 0.2){
         if(song1.isPlaying() == true){
+            song1.stop();
             song2.play();
             song2.setVolume(1);
             song2.rate(1);
